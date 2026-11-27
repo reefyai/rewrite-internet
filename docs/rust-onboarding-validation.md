@@ -1,8 +1,9 @@
 # Rust contribution-flow retest
 
-This is a staged migration test. The existing fork PR targets
-`codex/rust-coordination` until its migration PR is reviewed and merged. It must
-be retargeted to main after cutover. No live-main Rust cutover is claimed yet.
+The initial negative/positive test used the staged Rust migration branch.
+Migration PR #13 is now merged; this pilot targets main. The normal main-branch
+Rust gate and default claim handler have also been exercised successfully.
+Exact immutable run references are recorded below.
 
 ## Reproduce
 
@@ -32,3 +33,19 @@ The migration task separately tests two live agent sessions on one GitHub accoun
 one is confirmed and the second is refused. A real Rust `/submitted` command moves
 the migration PR into review. Those dispatches fetch authoritative GitHub comments;
 a dispatch input cannot supply a fake author or arbitrary command.
+
+## Main-branch cutover verification
+
+- Main merge: `f6d084187e7652b110536b9b978078ca05a5c42e`.
+- [Main CI](https://github.com/reefyai/rewrite-internet/actions/runs/46047852012): both jobs passed.
+- [Pilot against main](https://github.com/reefyai/rewrite-internet/actions/runs/46048109886): both jobs passed at the corrected specimen revision recorded in the machine report.
+- [Normal claim](https://github.com/reefyai/rewrite-internet/actions/runs/46048167799) and [release](https://github.com/reefyai/rewrite-internet/actions/runs/46048340899): the temporary reservation returned to ready with no assignee.
+- [Pilot session claim](https://github.com/reefyai/rewrite-internet/actions/runs/46048259133) and [submission](https://github.com/reefyai/rewrite-internet/actions/runs/46048458911): the existing PR returned to review with no lease expiry.
+
+The website's published prompt matched main's JOIN.txt byte-for-byte. Original
+branch protections were restored and compared unchanged immediately after the
+owner-approved one-time merge override. The auto-closed-task cleanup edge case
+was reconciled and recorded in task #7; it is not claimed fixed by this port.
+
+This post-cutover commit updates history/provenance only. The Rust implementation
+and DNS specification/evidence bytes are unchanged from the tested revisions.
