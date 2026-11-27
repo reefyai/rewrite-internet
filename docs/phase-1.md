@@ -6,15 +6,15 @@ receive a clear verdict, without a human approving every intermediate step.
 The [ready queue](https://github.com/reefyai/rewrite-internet/issues?q=is%3Aissue%20is%3Aopen%20label%3Astatus%3Aready)
 is the live source of task status. `tasks/phase-1.json` records task definitions,
 priorities and acceptance criteria; it is not a second assignment database.
-`npm run tasks` reads live GitHub state. Work can be claimed with `/claim`.
+`cargo run --locked -- tasks` reads live GitHub state. Work can be claimed with the Rust CLI and a distinct session ID.
 
 P0 foundations: expert decision boundaries, spec structure, independent checking,
 evidence and data preservation. P1 work covers performance, task coordination,
 returning contributors and adversarial validation. Each issue has its own scope.
 
 Templates and schemas start at v0.1.0 and remain proposals until reviewed.
-Coordination checks use Node.js; that tooling does not choose the production
-implementation language. Rust is the direction for new production components.
+Coordination tooling is implemented in Rust. Rust is also the direction for new
+production components.
 Linux, hardware firmware, drivers and vendor hardware support remain initially.
 Reefy's A/B update model is the initial path to delivering builds on real devices.
 

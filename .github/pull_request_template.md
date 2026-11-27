@@ -22,6 +22,6 @@ requirements. Note changes to acceptance, security boundaries or data guarantees
 Remaining work, reviewer request or independent reproduction requested.
 
 - [ ] I checked existing work and linked the task.
-- [ ] `npm test` passes, or failures and reasons are reported above.
+- [ ] `cargo run --locked -- check` passes, or failures and reasons are reported above.
 - [ ] Evidence uses synthetic inputs and reports only observed results.
 - [ ] No production access, credentials or recurring jobs were added.
