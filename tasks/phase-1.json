@@ -1,0 +1,152 @@
+[
+  {
+    "id": "F001",
+    "priority": "P0",
+    "title": "Expert briefings and decision boundaries",
+    "artifact": "docs/expert-workflow.md",
+    "acceptance": [
+      "Define reusable expert briefings with worked examples.",
+      "Define delegated decisions and triggers for human escalation.",
+      "Demonstrate a routine contribution without a per-step human gate and a consequential decision that stays pending until reviewed."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F002",
+    "priority": "P0",
+    "title": "Refine the common specification contract",
+    "artifact": "docs/spec-format.md",
+    "acceptance": [
+      "Review the initial Markdown/JSON templates and schemas with alternatives.",
+      "Define versioning and stable requirement IDs with a worked example.",
+      "Explain how domain-specific extensions preserve common acceptance traceability."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F003",
+    "priority": "P0",
+    "title": "Independent verification and CI trust boundaries",
+    "artifact": "docs/verification.md",
+    "acceptance": [
+      "Define builder/verifier separation and protected acceptance criteria.",
+      "Map unit, property, conformance, fuzzing, static analysis, formal, QEMU and hardware checks to risks.",
+      "Show how an untrusted PR is assessed without production secrets or executing its acceptance checker."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F004",
+    "priority": "P0",
+    "title": "Reproducible evidence and result states",
+    "artifact": "docs/evidence-contract.md",
+    "acceptance": [
+      "Define exact revision, environment, commands, artifacts and requirement mapping.",
+      "Distinguish proposed, measured, independently reproduced and formally proved claims.",
+      "Provide valid and invalid evidence examples and tests for rejection."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F005",
+    "priority": "P1",
+    "title": "Performance benchmark methodology",
+    "artifact": "docs/benchmarks.md",
+    "acceptance": [
+      "Define workloads, hardware, p50/p99 latency, throughput, memory, CPU and cost accounting.",
+      "Document baseline selection, warmup, repetitions and uncertainty.",
+      "Supply a reproducible synthetic benchmark plan without fabricated measurements."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F006",
+    "priority": "P0",
+    "title": "Data preservation and skipped-version upgrades",
+    "artifact": "specifications/data-lifecycle.md",
+    "acceptance": [
+      "Use the spec and evidence templates for a stateful migration/restore boundary.",
+      "Cover interrupted conversion, multiple skipped versions, old readers, backups and downgrade policy.",
+      "Specify a negative-case matrix and returning-device remediation isolation."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F007",
+    "priority": "P1",
+    "title": "Review task claiming and abandoned-work recovery",
+    "artifact": "docs/coordination-review.md",
+    "acceptance": [
+      "Exercise the initial claim bot with competing claims, renewal, expiry and submitted PRs.",
+      "Identify API-failure, stale-label and concurrency failure modes with reproductions.",
+      "Propose narrowly scoped improvements backed by regression tests."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F008",
+    "priority": "P0",
+    "title": "Exercise onboarding with a DNS parser specification",
+    "artifact": "specifications/dns-message.md",
+    "acceptance": [
+      "Write a bounded stateless DNS message parsing spec with exact RFC sections.",
+      "Map every requirement to positive and negative planned checks using the evidence template.",
+      "Complete claim, fresh checkout, validation, fork PR, submission and local handoff; do not claim an implementation exists."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F009",
+    "priority": "P1",
+    "title": "Returning contributors and opt-in scheduling",
+    "artifact": "docs/returning-contributors.md",
+    "acceptance": [
+      "Document resumption from an ignored handoff and existing review feedback.",
+      "Provide runner-neutral scheduling guidance with owner-approved budget, expiry and stop controls.",
+      "Demonstrate no-work, budget-exhausted and permission-required exits without spam or automatic enrollment."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  },
+  {
+    "id": "F010",
+    "priority": "P1",
+    "title": "Adversarial fixtures for contribution checks",
+    "artifact": "tests/adversarial.test.mjs",
+    "acceptance": [
+      "Add cases for stale spec versions, missing coverage, false measured claims and unsafe paths.",
+      "Show the same checks rejecting bad fixtures and accepting corrected fixtures.",
+      "Document structural validation limits and propose the next independent checker boundary."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
+  }
+]

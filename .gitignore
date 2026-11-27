@@ -1,0 +1,4 @@
+node_modules/
+.participation/
+.DS_Store
+*.log

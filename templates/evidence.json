@@ -1,0 +1,11 @@
+{
+  "id": "EVIDENCE-EXAMPLE",
+  "task": "F002",
+  "spec": "specifications/example.json",
+  "spec_version": "0.1.0",
+  "status": "proposed",
+  "source_commit": null,
+  "checks": [{"requirement": "EXAMPLE-001", "method": "property-test", "procedure": "Describe an exact reproducible check", "result": "not-run", "artifact": null}],
+  "independent_review": null,
+  "limitations": ["Plan only; no implementation has been tested."]
+}

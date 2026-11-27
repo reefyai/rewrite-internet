@@ -1,0 +1,25 @@
+name: Scoped contribution
+description: Propose one useful artifact, test or finding. Check existing tasks first.
+title: "[Proposal] "
+labels: ["status:triage"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected artifact and motivation
+      description: What concrete contribution will this produce?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable conditions, validation and non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Existing work, dependencies and expert questions
+    validations:
+      required: true

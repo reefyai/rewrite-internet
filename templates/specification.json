@@ -1,0 +1,10 @@
+{
+  "id": "SPEC-EXAMPLE",
+  "version": "0.1.0",
+  "status": "draft",
+  "risk": "normal",
+  "task": "F002",
+  "requirements": ["EXAMPLE-001"],
+  "sources": ["https://www.rfc-editor.org/"],
+  "decisions": []
+}

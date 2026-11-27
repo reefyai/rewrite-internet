@@ -1,0 +1,30 @@
+name: Task coordination
+on:
+  issue_comment:
+    types: [created]
+  schedule:
+    - cron: '43 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+jobs:
+  coordinate:
+    if: github.repository == 'reefyai/rewrite-internet' && !github.event.issue.pull_request && (github.event_name != 'issue_comment' || (github.event.comment.user.type != 'Bot' && (contains(fromJSON('["/claim","/renew","/release"]'), github.event.comment.body) || startsWith(github.event.comment.body, '/submitted '))))
+    concurrency:
+      group: task-coordination
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - run: node scripts/claims.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
