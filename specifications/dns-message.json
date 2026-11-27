@@ -1,0 +1,25 @@
+{
+  "id": "SPEC-DNS-MESSAGE",
+  "version": "0.1.0",
+  "status": "draft",
+  "risk": "enhanced",
+  "task": "F008",
+  "requirements": [
+    "DNS-001",
+    "DNS-002",
+    "DNS-003",
+    "DNS-004",
+    "DNS-005",
+    "DNS-006"
+  ],
+  "sources": [
+    "https://www.rfc-editor.org/rfc/rfc1035.html",
+    "https://www.rfc-editor.org/rfc/rfc3597.html",
+    "https://www.rfc-editor.org/rfc/rfc9267.html",
+    "https://github.com/hickory-dns/hickory-dns"
+  ],
+  "decisions": [
+    "Trailing-byte and unsupported-encoding compatibility",
+    "Resource budget defaults and record-count semantics"
+  ]
+}

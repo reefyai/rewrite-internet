@@ -1,0 +1,23 @@
+{
+  "task": "F008",
+  "base_commit": "6153dc974fb9868ac6ae333949c316087db9bb94",
+  "negative_commit": "5bc4a12d37b932739e1f0fb27c44079a6521453a",
+  "negative_run": "https://github.com/reefyai/rewrite-internet/actions/runs/46038636652",
+  "negative_result": "rejected missing DNS-006 coverage",
+  "corrected_files": {
+    "specifications/dns-message.md": "ebd53c85774aaba43c3f6db325f2685ed21f41c88192ccf2427abdade5bbdefa",
+    "specifications/dns-message.json": "ad592872ea968206699bbd9dfdb451db867bf69f1d2d80ae25461a114b07351a",
+    "evidence/dns-message.json": "5f7ce10aef40ef77e6c8960df1e5d20dbb5b192b2a343d15ac534083aa6d0001"
+  },
+  "commands": [
+    "npm ci --ignore-scripts",
+    "npm test",
+    "node <trusted-base-checkout>/scripts/check.mjs <candidate-checkout>"
+  ],
+  "local_tests": {
+    "pass": 17,
+    "fail": 0
+  },
+  "corrected_structural_check": "pass",
+  "runtime_dns_tests": "not-run"
+}

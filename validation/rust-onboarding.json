@@ -1,0 +1,33 @@
+{
+  "rust_base_commit": "593da580f34cb7fa690c2f9c6419c4c948e77e29",
+  "negative_commit": "ab016a5277e46d22a5090d1f75ff5a7c0e3d8840",
+  "negative_run": "https://github.com/reefyai/rewrite-internet/actions/runs/46045442635",
+  "negative_result": "base-commit Rust gate rejected uncovered DNS-006",
+  "corrected_files": {
+    "specifications/dns-message.md": "ebd53c85774aaba43c3f6db325f2685ed21f41c88192ccf2427abdade5bbdefa",
+    "specifications/dns-message.json": "ad592872ea968206699bbd9dfdb451db867bf69f1d2d80ae25461a114b07351a",
+    "evidence/dns-message.json": "5f7ce10aef40ef77e6c8960df1e5d20dbb5b192b2a343d15ac534083aa6d0001"
+  },
+  "commands": [
+    "cargo test --locked",
+    "cargo run --locked -- check"
+  ],
+  "tests": {
+    "pass": 33,
+    "fail": 0
+  },
+  "runtime_dns_tests": "not-run",
+  "scope": "Rust migration staged test followed by verified normal main-branch cutover",
+  "main_verification": {
+    "merge_commit": "f6d084187e7652b110536b9b978078ca05a5c42e",
+    "main_ci_run": 46047852012,
+    "pilot_ci_run": 46048109886,
+    "tested_pilot_revision": "5fb9ab7258b2b5f8b6fe3c3c9137d61c68fc9116",
+    "normal_claim_run": 46048167799,
+    "normal_release_run": 46048340899,
+    "pilot_claim_run": 46048259133,
+    "pilot_submit_run": 46048458911,
+    "protection_restored_unchanged": true,
+    "auto_closed_cleanup_edge_case": "recorded in task #7; reconciled manually"
+  }
+}
