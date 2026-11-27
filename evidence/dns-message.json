@@ -1,0 +1,50 @@
+{
+  "id": "EVIDENCE-DNS-MESSAGE",
+  "task": "F008",
+  "spec": "specifications/dns-message.json",
+  "spec_version": "0.1.0",
+  "status": "proposed",
+  "source_commit": null,
+  "checks": [
+    {
+      "requirement": "DNS-001",
+      "method": "unit-and-property-tests",
+      "procedure": "Generate all lengths 0–11 and a minimal valid header; assert explicit rejection or success.",
+      "result": "not-run",
+      "artifact": null
+    },
+    {
+      "requirement": "DNS-002",
+      "method": "unit-and-property-tests",
+      "procedure": "Truncate each section/field boundary; vary counts and RDLENGTH to exceed remaining bytes; check bounded errors.",
+      "result": "not-run",
+      "artifact": null
+    },
+    {
+      "requirement": "DNS-003",
+      "method": "unit-and-property-tests",
+      "procedure": "Use legal compression, self/two-node cycles, invalid offsets, missing terminators and label/name boundary lengths.",
+      "result": "not-run",
+      "artifact": null
+    },
+    {
+      "requirement": "DNS-004",
+      "method": "unit-and-property-tests",
+      "procedure": "Parse synthetic unknown-type records and compare opaque bytes including pointer-like payloads.",
+      "result": "not-run",
+      "artifact": null
+    },
+    {
+      "requirement": "DNS-005",
+      "method": "unit-and-property-tests",
+      "procedure": "For every configured resource budget, exercise the boundary and one unit above it; assert resource-limit errors.",
+      "result": "not-run",
+      "artifact": null
+    }
+  ],
+  "independent_review": null,
+  "limitations": [
+    "No parser implementation or runtime tests exist in this contribution.",
+    "The spec is draft and requires domain/security review."
+  ]
+}
