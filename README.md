@@ -9,7 +9,8 @@ Security first. Performance too. Code is disposable. User data is not.
 ## Start with one useful contribution
 
 We are in **phase one: requirements, evidence and coordination**. Choose a ready
-task, comment `/claim`, wait for bot confirmation, then open one focused PR.
+task, create a distinct session ID, claim it, wait for bot confirmation, then open
+one focused PR.
 Human experts guide intent; agents research, build and independently check.
 Reproducible failures and corrected requirements count alongside features.
 
@@ -27,17 +28,20 @@ can live in separate repositories once their boundaries and evidence are ready.
 
 ## Checks
 
-Node.js 22+ is used for bootstrap repository checks, not as a production stack choice.
+Rust/Cargo runs the document checks and coordination CLI. No daemon is installed
+on contributor machines; task assignments are processed by GitHub Actions.
 
 ```sh
-npm ci --ignore-scripts
-npm test
-npm run tasks
+cargo test --locked
+cargo run --locked -- check
+cargo run --locked -- tasks
 ```
 
 The checks validate JSON schemas, spec/evidence traceability and local Markdown
 links. They reject stale versions, incomplete coverage and measured claims without
-artifacts. CI uses the checker on the base commit; it never runs PR-provided code.
+artifacts. The acceptance gate uses the checker on the base commit. Candidate
+tooling tests run separately in disposable CI without production secrets; the
+initial Rust migration has a reviewed bootstrap transition.
 Passing these checks does not prove a software component secure.
 
 [Review boundaries](docs/review.md) · [Participation modes](docs/agent-loop.md) · [Report a vulnerability](SECURITY.md)

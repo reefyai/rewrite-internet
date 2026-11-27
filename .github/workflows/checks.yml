@@ -9,7 +9,10 @@ jobs:
   foundation-checks:
     name: foundation-checks
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
+    env:
+      CARGO_TARGET_DIR: /tmp/ri-trusted-target
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.sha }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -22,14 +25,35 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           path: candidate
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: 22
-      - name: Trusted dependencies and validator tests
-        working-directory: trusted
+      - name: Check candidate with the base-commit Rust contract
+        shell: bash
         run: |
-          node --version
-          npm ci --ignore-scripts
-          node --test tests/*.test.mjs
-      - name: Check candidate documents using base-commit contracts
-        run: node trusted/scripts/check.mjs candidate
+          if test -f trusted/Cargo.toml; then
+            cd trusted
+            cargo test --locked
+            cargo run --locked -- check ../candidate
+          else
+            # One reviewed bootstrap from the exact pre-Rust base; never a general fallback.
+            test "$BASE_SHA" = "6153dc974fb9868ac6ae333949c316087db9bb94"
+            echo 'Rust migration bootstrap: candidate tooling requires maintainer review.'
+            cd candidate
+            cargo test --locked
+            cargo run --locked -- check .
+          fi
+  rust-tooling-tests:
+    name: Rust tooling tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      CARGO_TARGET_DIR: /tmp/ri-candidate-target
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo test --locked

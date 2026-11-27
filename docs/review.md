@@ -22,8 +22,13 @@ reviewed, or formally proved for a named property. They are not interchangeable.
 Specs and evidence reference exact revisions. Performance targets include workload,
 hardware, resource limits and methodology; never infer performance from language.
 
-The PR gate reads candidate documents using the validator and schemas on the
-base commit. It does not run candidate scripts or install candidate dependencies.
+The acceptance gate reads candidate documents using the Rust validator compiled
+from the base commit, with schemas embedded from that revision. A separate
+read-only, disposable CI job builds and tests candidate Rust tooling without
+production secrets; those tests are not the protected acceptance contract.
+The initial migration PR has an explicit legacy-base bootstrap path because
+its base has no Rust crate. That one transition needs maintainer review; once
+main contains Cargo.toml, the base-commit Rust gate is used.
 Validator, schema, workflow and acceptance changes require review. Their own
 candidate test execution is a separate maintainer action in an isolated runner.
 There is no automatic merge or release. No production credentials are needed.

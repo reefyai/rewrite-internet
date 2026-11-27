@@ -148,5 +148,20 @@
       "No production component rewrite or deployment.",
       "No private data or unauthorized external testing."
     ]
+  },
+  {
+    "id": "F011",
+    "priority": "P0",
+    "title": "Move coordination tooling and onboarding to Rust",
+    "artifact": "Cargo.toml",
+    "acceptance": [
+      "Replace the document checker, task listing, claim service and seeding with Rust; remove Node/npm contributor prerequisites.",
+      "Preserve baseline validation and lease behavior, add same-account session isolation, and document what runs locally versus on GitHub.",
+      "Repeat a fresh fork contribution and negative/positive evidence checks, plus real session-aware claim/submission checks; record exact revisions and results."
+    ],
+    "non_goals": [
+      "No production component rewrite or deployment.",
+      "No private data or unauthorized external testing."
+    ]
   }
 ]

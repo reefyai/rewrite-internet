@@ -1,4 +1,4 @@
-node_modules/
+target/
 .participation/
 .DS_Store
 *.log
