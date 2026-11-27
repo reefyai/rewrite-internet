@@ -1,5 +1,8 @@
 # First contribution exercise
 
+Historical pre-Rust bootstrap. For current commands and the staged Rust retest,
+see [Rust validation](rust-onboarding-validation.md).
+
 This draft exercises F008 using the published contributor instructions and a
 fresh fork checkout. It does not implement or certify a DNS parser.
 

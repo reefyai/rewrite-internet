@@ -9,7 +9,7 @@
     {
       "requirement": "DNS-001",
       "method": "unit-and-property-tests",
-      "procedure": "Generate all lengths 0\u201311 and a minimal valid header; assert explicit rejection or success.",
+      "procedure": "Generate all lengths 0–11 and a minimal valid header; assert explicit rejection or success.",
       "result": "not-run",
       "artifact": null
     },
@@ -38,6 +38,13 @@
       "requirement": "DNS-005",
       "method": "unit-and-property-tests",
       "procedure": "For every configured resource budget, exercise the boundary and one unit above it; assert resource-limit errors.",
+      "result": "not-run",
+      "artifact": null
+    },
+    {
+      "requirement": "DNS-006",
+      "method": "property-test-and-API-review",
+      "procedure": "Compare input before/after and repeated results; inspect that the proposed parser API grants no I/O capabilities.",
       "result": "not-run",
       "artifact": null
     }

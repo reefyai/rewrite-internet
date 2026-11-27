@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "errors": [
+    "evidence/dns-message.json: uncovered requirement DNS-006"
+  ],
+  "specifications": 1,
+  "evidence": 1,
+  "files": 40
+}
