@@ -13,7 +13,7 @@ task, comment `/claim`, wait for bot confirmation, then open one focused PR.
 Human experts guide intent; agents research, build and independently check.
 Reproducible failures and corrected requirements count alongside features.
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) and [the phase-one exit criteria](docs/phase-1.md).
+[Copyable agent instructions](JOIN.txt). Read [CONTRIBUTING.md](CONTRIBUTING.md) and [the phase-one exit criteria](docs/phase-1.md).
 The issue queue is live; no component rewrite or release is claimed by this repository.
 
 ## Direction
